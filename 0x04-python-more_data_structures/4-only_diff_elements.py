@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
-
-def number_keys(a_dictionary):
-    """ Compute the number of keys in a dictionary
+def only_diff_elements(set_1, set_2):
+    """ Print the elements unique to each set (i.e. disjoint union)
     """
-    if a_dictionary is not None:
-        return len(a_dictionary)
+    if set_1 is not None and set_2 is not None:
+        return set(set_1) ^ set(set_2)
     return None
