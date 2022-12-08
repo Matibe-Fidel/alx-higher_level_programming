@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def _reduce(fn, seq, init=0):
     """ Reduce a list to a single value
     """
@@ -7,6 +8,7 @@ def _reduce(fn, seq, init=0):
         return _reduce(fn, seq[1:], fn(init, seq[0]))
     except IndexError:
         return init
+
 
 def roman_to_int(roman_string):
     """ Convert a Roman numeral to an integer
