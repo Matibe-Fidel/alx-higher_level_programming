@@ -1,64 +1,59 @@
 #!/usr/bin/python3
-""" Module providing a definition of a class 'Square'
-"""
+"""Write a class Square"""
 
 
-class Square():
-    """ Definition of a 'Square'
-    """
+class Square:
+    """Represent a square"""
+
     def __init__(self, size=0, position=(0, 0)):
-        """ Instantiate a 'Square'
-        """
+        """ Initialize the attribute : size"""
         self.size = size
         self.position = position
 
+    """Size getter"""
     @property
     def size(self):
-        """ Get the size of a square
-        """
-        return self.__size
+        return (self.__size)
 
+    """Size setter"""
     @size.setter
-    def size(self, size):
-        """ Set the size of a square
-        """
-        if not isinstance(size, int):
+    def size(self, value):
+        if type(value) != int:
             raise TypeError("size must be an integer")
-        if size < 0:
+        elif value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = size
+        self.__size = value
 
+    """Position getter"""
     @property
     def position(self):
-        """ Get the position of a square
-        """
-        return self.__position
+        return (self.__position)
 
+    """Position setter"""
     @position.setter
-    def position(self, position):
-        """ Set the position of a square
-        """
-        if not (isinstance(position, tuple) and
-                len(position) == 2 and
-                isinstance(position[0], int) and
-                isinstance(position[1], int) and
-                position[0] >= 0 and
-                position[1] >= 0):
-            raise TypeError("position must be tuple of 2 positive integers")
-        self.__position = position
+    def position(self, value):
+        if (type(value) != tuple or len(value) != 2 or
+        type(value[0]) != int or type(value[1]) != int
+        or value[0] < 0 or value[1] < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position= value
 
-    def area(self):
-        """ Compute the area of a 'Square'
+        """Create public instance method: area"""
+        def area(self):
+            sq_area = self.__size ** 2
+            return (sq_area)
+
+        """Create public instance method: my_print
+        Line is not filles with spaces when position[1] > 0
         """
-        return self.size ** 2
-    
-    def my_print(self):
-        """ Print a visual representation of a square
-        """
-        if self.size:
-            print('\n' * self.position[1], end="")
-            print('\n'.join(
-                [' ' * self.position[0] + '#' * self.size] * self.size
-            ))
-        else:
-            print()
+        def my_print(self):
+            if self.__size > 0:
+                for x in range(self.position[1]):
+                    print("")
+                for x in range(self.__size):
+                    for y in range(self.__position[0]):
+                        print(" ", end="")
+                    for y in range(self.__size):
+                        print("#", end="")
+                    print("")
+                print("")
