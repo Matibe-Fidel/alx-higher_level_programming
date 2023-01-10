@@ -22,4 +22,4 @@ class Square(Rectangle):
     def __str__(self):
         """ Render a string representation of a square
         """
-        return '[Square] {size}/{size}'.format(size=self.__size
+        return '[Square] {size}/{size}'.format(size=self.__size)
